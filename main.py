@@ -1,4 +1,5 @@
 # Main Menu to add Workers in Company
+from workers import Workers
 def Menu():
     is_exit = False
     while is_exit is not True:
@@ -13,7 +14,8 @@ def Menu():
 
         # Options for Menu
             if options == 1:
-                print("Firs option")
+                Add_Employee()
+                #print("Firs option")
             elif options == 2:
                 print("Second option choose")
             elif options == 3:
@@ -27,5 +29,15 @@ def Menu():
             print(f"{e}")
             Menu()
 
+def Add_Employee():
+    name = input("Type your name: ").lower()
+    age  = int(input("Type your age:"))
+    sex = input("Choose an sex M = male F= female: ").lower()
+    nation = input("Type your country:").lower()
+    position = input('Type your position:').lower()
+    salary = float(input('Type your salary:'))
+    employee = Workers(position,salary,name,age,sex,nation)
+    #print(employee.name)
+    employee.Add_Worker(employee)
 
 Menu()
