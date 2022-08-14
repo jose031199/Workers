@@ -21,11 +21,13 @@ def Menu():
                     age = int(input("Type your age:"))
                     if w1.IsUnderAge(age) is True:
                         sex = input("Choose an sex M = male F= female: ").lower()
-                        nation = input("Type your country:").lower()
-                        position = input('Type your position:').lower()
-                        salary = float(input('Type your salary:'))
-                        worker = Workers(position, salary, name, age, sex, nation)
-                        worker.Add_Worker(list_workers)
+                        if w1.IsMale_Female(sex) is True:
+                            nation = input("Type your country:").lower()
+                            position = input('Type your position:').lower()
+                            salary = float(input('Type your salary:'))
+                            worker = Workers(position, salary, name, age, sex, nation)
+                            worker.Add_Worker(list_workers)
+                        else:print("Is male or female")
                     else:
                         print(f"You must be 18 years or older")
                 except Exception as e:
@@ -46,12 +48,12 @@ def Menu():
 
             elif options == 4:
                 if len(list_workers.get("Workers").get("name"))>0:
-                    position = input("Position to search: ")
                     w1.Remove_By_Name(name,list_workers)
                 else:
                     print("There is not employees")
 
             elif options == 5:
+                w1.Remove_File()
                 print("GoodBye")
                 is_exit = True
         except ValueError as e:
