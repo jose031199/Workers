@@ -1,6 +1,6 @@
 #Class to create Workers
 from person import Person
-import json
+import json,os
 
 class Workers(Person):
     def __init__(self,position='',salary=0,name='',age=0,sex='',nationality=''):
@@ -64,6 +64,8 @@ class Workers(Person):
                 "salary":[]
             }
         }
-
-
         return list_workers
+
+    def Remove_File(self):
+        if os.path.exists("worker.txt"):
+            os.remove('worker.txt')
