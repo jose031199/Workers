@@ -15,7 +15,8 @@ class Workers(Person):
         list["Workers"].get("country").append(self.nationality)
         list["Workers"].get("position").append(self.position)
         list["Workers"].get("salary").append(self.salary)
-        print(f'Added new employee {list["Workers"].get("name")[0]}')
+        print(f'Added new employee')
+        self.Add_File(list)
 
     def Show_Employee(self,list):
         for key,value in list["Workers"].items():
@@ -44,14 +45,13 @@ class Workers(Person):
         else:
             print("No hay ninguna persona con ese nombre")
 
-    def Add_File(self):
+    def Add_File(self,list):
         try:
             worker_file = open("worker.txt","w")
-            worker_file.write()
+            for key, value in list["Workers"].items():
+                worker_file.write(f"{key}:{value} \n")
         except Exception as e:
             print(f"{e} file not created")
-
-
 
     def Create_List(self):
         list_workers = {

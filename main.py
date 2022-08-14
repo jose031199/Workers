@@ -16,15 +16,20 @@ def Menu():
 
         # Options for Menu
             if options == 1:
-
-                name = input("Type your name: ").lower()
-                age = int(input("Type your age:"))
-                sex = input("Choose an sex M = male F= female: ").lower()
-                nation = input("Type your country:").lower()
-                position = input('Type your position:').lower()
-                salary = float(input('Type your salary:'))
-                worker = Workers(position, salary, name, age, sex, nation)
-                worker.Add_Worker(list_workers)
+                try:
+                    name = input("Type your name: ").lower()
+                    age = int(input("Type your age:"))
+                    if w1.IsUnderAge(age) is True:
+                        sex = input("Choose an sex M = male F= female: ").lower()
+                        nation = input("Type your country:").lower()
+                        position = input('Type your position:').lower()
+                        salary = float(input('Type your salary:'))
+                        worker = Workers(position, salary, name, age, sex, nation)
+                        worker.Add_Worker(list_workers)
+                    else:
+                        print(f"You must be 18 years or older")
+                except Exception as e:
+                    print(f"{e}")
 
             elif options == 2:
                 if len(list_workers.get("Workers").get("name"))>0:

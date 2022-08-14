@@ -7,6 +7,6 @@ class Person:
         self.sex = sex
         self.nationality = nationality
 
-    def IsUnderAge(self):#Method to know if person person is above 18 can have a job
-        if self.age > 18:
+    def IsUnderAge(self,age):#Method to know if person person is above 18 can have a job
+        if age > 18:
             return True
